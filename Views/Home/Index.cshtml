@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TpMVC.Models.Curso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Cursos disponibles</h2>
+
+<table class="table">
+    <thead class="bg-secondary text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnioPublicado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lenguaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Video)
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr style="background:@item.Nivel.ClaseCss" >
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioPublicado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lenguaje.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel.Nombre)
+            </td>
+            <td>
+                <a href=@item.ObtenerUrlCompleto() title=@item.ObtenerUrlCompleto() target="_blank"> Link</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

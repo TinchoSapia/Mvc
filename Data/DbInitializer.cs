@@ -1,0 +1,156 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TpMVC.Models;
+
+namespace TpMVC.Data
+{
+    public class DbInitializer
+    {
+        public static void Initialize(ELearningDbContext context)
+        {
+            context.Database.EnsureCreated();
+            if (context.Cursos.Any())
+            {
+                return;   
+            }
+
+
+            byte[] data = System.Text.Encoding.ASCII.GetBytes("qwer1234");
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+
+            Usuario usuario1 = new Usuario()
+            {
+                Nombre = "Martin",
+                Apellido = "Sapia",
+                Email = "martin_sapia@hotmail.com",
+                Contrasenia = data,
+                
+            };
+            context.Usuarios.Add(usuario1);
+
+            data = System.Text.Encoding.ASCII.GetBytes("123456");
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            Usuario usuario2 = new Usuario()
+            {
+                Nombre = "Martin",
+                Apellido = "Sapia",
+                Email = "msapia1994@hotmail.com",
+                Contrasenia = data,
+            };
+            context.Usuarios.Add(usuario2);
+
+            var Basico = new Nivel()
+            {
+                Nombre = "Basico",
+                ClaseCss = "LightGreen"
+
+            };
+            context.Niveles.Add(Basico);
+
+            var Intermedio = new Nivel()
+            {
+                Nombre = "Intermedio",
+                ClaseCss = "PaleGoldenRod"
+            };
+            context.Niveles.Add(Intermedio);
+
+            var Avanzado = new Nivel()
+            {
+                Nombre = "Avanzado",
+                ClaseCss = "INDIANRED"
+            };
+            context.Niveles.Add(Avanzado);
+
+            var Programador1 = new Programador()
+            {
+                Nombre = "Martin",
+                Apellido = "Perez"
+            };
+            context.Programadores.Add(Programador1);
+
+            var Programador2 = new Programador()
+            {
+                Nombre = "Alejandro",
+                Apellido = "Sanchez"
+            };
+            context.Programadores.Add(Programador2);
+
+            var Video = new Video() 
+            {
+                ServidorStreaming = "Youtube",
+                Url ="http://www.youtube.com",
+                Duracion = 113
+            };
+            context.Videos.Add(Video);
+
+            var Video2 = new Video()
+            {
+                ServidorStreaming = "Udemy",
+                Url = "http://www.Udemy.com",
+                Duracion = 54
+            };
+            context.Videos.Add(Video2);
+            var Lenguaje1 = new Lenguaje()
+            {
+                Nombre = "Java",
+                Version = "8"
+            };
+            context.Lenguajes.Add(Lenguaje1);
+            var Lenguaje2 = new Lenguaje()
+            {
+                Nombre = "JavaScript",
+                Version = "ECMAScript 2016"
+            };
+            context.Lenguajes.Add(Lenguaje2);
+            var Lenguaje3 = new Lenguaje()
+            {
+                Nombre = "C#",
+                Version = ".NET MVC Core 2.1"
+            };
+            context.Lenguajes.Add(Lenguaje3);
+            var Curso1 = new Curso()
+            {
+                Titulo = "Variables en Java",
+                Lenguaje = Lenguaje1,
+                Nivel = Basico,
+                Programador = Programador1,
+                AnioPublicado = 2018,
+                Video = Video2,
+                Ruta = " "
+            };
+            context.Cursos.Add(Curso1);
+
+            var Curso2 = new Curso()
+            {
+                Titulo = "Variables en JavaScript",
+                Lenguaje = Lenguaje2,
+                Nivel = Intermedio,
+                Programador = Programador2,
+                AnioPublicado = 2020,
+                Video = Video,
+                Ruta = " "
+            };
+            context.Cursos.Add(Curso2);
+            var Curso3 = new Curso()
+            {
+                Titulo = "Variables en C#",
+                Lenguaje = Lenguaje3,
+                Nivel = Avanzado,
+                Programador = Programador1,
+                AnioPublicado = 2020,
+                Video = Video,
+                Ruta = "/1 "
+            };
+            context.Cursos.Add(Curso3);
+
+
+            context.CursosProgramadores.Add(new CursoProgramador() { Programador = Programador1, Curso = Curso1 });
+            context.CursosProgramadores.Add(new CursoProgramador() { Programador = Programador2, Curso = Curso2 });
+            context.CursosProgramadores.Add(new CursoProgramador() { Programador = Programador1, Curso = Curso3 });
+
+            context.SaveChanges();
+        }
+    }
+}

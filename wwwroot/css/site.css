@@ -1,0 +1,75 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('/images/images1.jpg');
+
+    /*background-color: rgb(248, 226, 204);*/
+    /*background-color: rgb(173, 33, 30);*/
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.cursos {
+    background-color: ;
+    color: white; 
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+.login{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 350px;
+    height: 420px;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5)
+}
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 0px;
+    color: rgb(0, 0, 0);
+    background:unset;
+}
+.post-footer {
+    width: 475px;
+    margin: 0 auto;
+    position: absolute;
+}
+h2css {
+    font-family: sans-serif;
+    color: #FFFFFF;
+}
+@media screen and (max-width: 767px) {
+    .carousel-caption {
+        display: none;
+    }
+}
