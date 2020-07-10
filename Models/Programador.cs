@@ -27,6 +27,5 @@ namespace TpMVC.Models
                 return $"{Apellido}, {Nombre}";
             }
         }
-        public ICollection<CursoProgramador> CursosProgramador { get; set; }
     }
 }

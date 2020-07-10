@@ -18,10 +18,11 @@ namespace TpMVC.Data
         public DbSet<Lenguaje> Lenguajes { get; set; }
         public DbSet<Nivel> Niveles { get; set; }
         public DbSet<Programador> Programadores { get; set; }
-        public DbSet<CursoProgramador> CursosProgramadores { get; set; }
+        public DbSet<CursoUsuario> CursoUsuarios { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
     }   
 }

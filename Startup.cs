@@ -29,10 +29,17 @@ namespace TpMVC
         {
            
                 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => options.LoginPath = "/Usuarios/Login");
-
+                
+              //  services.AddAuthorization(options =>
+              //  {
+             //  options.AddPolicy("RequireAdministratorRole",
+             //        policy => policy.RequireRole("administrador"));
+             //   });
+                
                 services.AddHttpContextAccessor();
 
                 services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                
 
                 services.AddDbContext<ELearningDbContext>(options => options.UseInMemoryDatabase("ELearningDb"));
 
@@ -59,7 +66,7 @@ namespace TpMVC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Usuarios}/{action=Login}/{id?}");
             });
         }
     }

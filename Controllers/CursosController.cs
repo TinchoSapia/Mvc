@@ -13,7 +13,6 @@ using TpMVC.Models;
 
 namespace TpMVC.Controllers
 {
-    [Authorize]
     public class CursosController : Controller
     {
         private readonly ELearningDbContext _context;
@@ -27,6 +26,7 @@ namespace TpMVC.Controllers
         // GET: Cursos
         public async Task<IActionResult> Index()
         {
+            
             var eLearningDbContext = _context.Cursos
                 .Include(c => c.Lenguaje)
                 .Include(c => c.Nivel)
@@ -34,7 +34,16 @@ namespace TpMVC.Controllers
                 .Include(c => c.Programador);
             return View(await eLearningDbContext.ToListAsync());
         }
-
+        [Authorize(Roles = "cliente")]
+        public async Task<IActionResult> MisCursos()
+        {
+            Usuario usuario = await _context.Usuarios.FirstOrDefaultAsync(usr => usr.Email == User.Identity.Name.ToLower());
+            var misCursos = _context.CursoUsuarios
+                .Where(x => x.UsuarioId == usuario.Id)
+                .Include(c => c.Curso)
+                .Include(c => c.Usuario);
+            return View(await misCursos.ToListAsync());
+        }
         // GET: Cursos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -171,6 +180,8 @@ namespace TpMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+       
         private bool CursoExists(int id)
         {
             return _context.Cursos.Any(e => e.Id == id);

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CSharp.RuntimeBinder;
@@ -35,29 +38,40 @@ namespace TpMVC.Controllers
         public async Task<IActionResult> Login([Bind("email", "password")] string email, string password)
         {
             string returnUrl = TempData["returnUrl"] as string;
-            Usuario usuario = _context.Usuarios.FirstOrDefault(usr => usr.Email == email.ToLower());
+            Usuario usuario = await _context.Usuarios.FirstOrDefaultAsync(usr => usr.Email == email.ToLower());
 
             if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(password))
             {
                 byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
                 data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                
                 try
                 {
+                    
                     if (usuario.Contrasenia.SequenceEqual(data))
                     {
-                        ClaimsIdentity identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                        identity.AddClaim(new Claim(ClaimTypes.Name, email.ToLower()));
-                        ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
+                        var claims = new List<Claim>
+                            {
+                                new Claim(ClaimTypes.Name, email.ToLower()),
+                                new Claim(ClaimTypes.Role, usuario.Role.ToString()),
+                            };
+                        
+                        var authProperties = new AuthenticationProperties
+                        {
+                            IsPersistent = true,
+                        };
+                        var claimsIdentity = new ClaimsIdentity(
+                            claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
                         usuario.FechaUltimoAcceso = DateTime.Now;
                         await _context.SaveChangesAsync();
-
+                      
                         if (!string.IsNullOrWhiteSpace(returnUrl))
                             return Redirect(returnUrl);
 
-                        return RedirectToAction("Index", "Cursos");
+                        return RedirectToAction("Disponibles", "CursoUsuarios");
                     }
+                    
                 }
                 catch (NullReferenceException)
                 {
@@ -65,9 +79,9 @@ namespace TpMVC.Controllers
                 }
  
             }
-
             ViewBag.Error = "Usuario o contraseña incorrectos";
             ViewBag.Email = email.ToLower();
+            
 
             return View();
         }
@@ -77,7 +91,7 @@ namespace TpMVC.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login","Usuarios");
         }
 
         // GET: Usuarios/SignUp
@@ -101,7 +115,7 @@ namespace TpMVC.Controllers
                 {
                     byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
                     data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-
+                    usuario.Role = "cliente";
                     usuario.Contrasenia = data;
                     usuario.Email = Email.ToLower();
                     if (ModelState.IsValid)
@@ -183,7 +197,7 @@ namespace TpMVC.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "CursoUsuarios");
             }
             return View(usuario);
         }

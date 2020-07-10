@@ -1,0 +1,65 @@
+﻿@model TpMVC.Models.CursoUsuario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalles del Curso</h2>
+
+<div>
+    <h4>@Model.Curso.Titulo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Titulo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Titulo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Programador)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Programador.NombreApellido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.AnioPublicado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.AnioPublicado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Lenguaje)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Lenguaje.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Nivel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Nivel.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Video.Duracion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Video.Duracion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Video)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Video.ServidorStreaming)
+        </dd>
+        <dt>
+            Link
+        </dt>
+        <dd>
+            @Model.Curso.ObtenerUrlCompleto()
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

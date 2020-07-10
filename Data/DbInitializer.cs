@@ -17,30 +17,33 @@ namespace TpMVC.Data
             }
 
 
+
+
+            
             byte[] data = System.Text.Encoding.ASCII.GetBytes("qwer1234");
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-
             Usuario usuario1 = new Usuario()
             {
                 Nombre = "Martin",
-                Apellido = "Sapia",
-                Email = "martin_sapia@hotmail.com",
+                Apellido = "SapiaAdministrador",
+                Email = "administrador@administrador.com",
                 Contrasenia = data,
+                Role = "administrador"
                 
             };
             context.Usuarios.Add(usuario1);
 
-            data = System.Text.Encoding.ASCII.GetBytes("123456");
+            data = System.Text.Encoding.ASCII.GetBytes("qwer1234");
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
             Usuario usuario2 = new Usuario()
             {
                 Nombre = "Martin",
-                Apellido = "Sapia",
-                Email = "msapia1994@hotmail.com",
+                Apellido = "SapiaCliente",
+                Email = "cliente@cliente.com",
                 Contrasenia = data,
+                Role = "cliente",
             };
             context.Usuarios.Add(usuario2);
-
             var Basico = new Nivel()
             {
                 Nombre = "Basico",
@@ -146,9 +149,9 @@ namespace TpMVC.Data
             context.Cursos.Add(Curso3);
 
 
-            context.CursosProgramadores.Add(new CursoProgramador() { Programador = Programador1, Curso = Curso1 });
-            context.CursosProgramadores.Add(new CursoProgramador() { Programador = Programador2, Curso = Curso2 });
-            context.CursosProgramadores.Add(new CursoProgramador() { Programador = Programador1, Curso = Curso3 });
+            context.CursoUsuarios.Add(new CursoUsuario() { Usuario = usuario1, Curso = Curso1 });
+            context.CursoUsuarios.Add(new CursoUsuario() { Usuario = usuario2, Curso = Curso2 });
+            context.CursoUsuarios.Add(new CursoUsuario() { Usuario = usuario2, Curso = Curso3 });
 
             context.SaveChanges();
         }

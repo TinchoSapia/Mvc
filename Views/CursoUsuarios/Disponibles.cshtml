@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TpMVC.Models.Curso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Cursos disponibles</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por lenguaje..">
+<hr/>
+
+<table id="myTable" class="table">
+    <thead class="bg-secondary text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnioPublicado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lenguaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            @if (User.IsInRole("cliente")) {
+            <th>
+                Agrgar a Mis Cursos
+            </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr style="background:@item.Nivel.ClaseCss">
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioPublicado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lenguaje.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel.Nombre)
+            </td>
+            @if (User.IsInRole("cliente"))
+            {
+                <td>
+                    <a asp-controller="CursoUsuarios" asp-action="Create" asp-route-id="@item.Id"> - Agregar -</a>
+                </td>
+            }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+function myFunction() {
+
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>

@@ -44,10 +44,10 @@
                         <span class="icon-bar"></span>
                     </button>
                 
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Inicio</a>
+                    <a asp-area="" asp-controller="CursoUsuarios" asp-action="Disponibles" class="navbar-brand">Cursos Disponibles</a>
                 </div>
             <div class="navbar-collapse collapse">
-                @if (User.Identity.IsAuthenticated)
+                @if (User.IsInRole("administrador"))
                 {
                     <ul class="nav navbar-nav mr-auto">
                         <li><a asp-controller="Lenguajes" asp-action="Index">Lenguaje</a></li>
@@ -56,28 +56,34 @@
                         <li><a asp-controller="Cursos" asp-action="Index">Cursos</a></li>
                     </ul>
                 }
-                    <ul class="nav navbar-nav navbar-right">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a asp-controller="Usuarios" asp-action="Edit">Editar</a></li>
-                                    <li>
-                                        <!-- Acá utilizamos un a fuera del formulario para hacer submit del mismo. -->
-                                        <a href="#" onclick="document.getElementById('logoutForm').submit();">Logout</a>
-                                        <form id="logoutForm" method="post" asp-controller="Usuarios" asp-action="Logout"></form>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
-                        else
-                        {
-                            <li><a asp-controller="Usuarios" asp-action="Login">Login</a></li>
-                            <li><a asp-controller="Usuarios" asp-action="Signup">Signup</a></li>
-                        }
+                @if (User.IsInRole("cliente"))
+                {
+                    <ul class="nav navbar-nav mr-auto">
+                        <li><a asp-controller="CursoUsuarios" asp-action="MisCursos">Mis Cursos</a></li>
                     </ul>
-                </div>
+                }
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-controller="Usuarios" asp-action="Edit">Editar</a></li>
+                                <li>
+                                    <!-- Acá utilizamos un a fuera del formulario para hacer submit del mismo. -->
+                                    <a href="#" onclick="document.getElementById('logoutForm').submit();">Logout</a>
+                                    <form id="logoutForm" method="post" asp-controller="Usuarios" asp-action="Logout"></form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Usuarios" asp-action="Login">Login</a></li>
+                        <li><a asp-controller="Usuarios" asp-action="Signup">Signup</a></li>
+                    }
+                </ul>
+            </div>
         </div>
     </nav>
 

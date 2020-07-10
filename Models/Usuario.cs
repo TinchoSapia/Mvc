@@ -30,8 +30,12 @@ namespace TpMVC.Models
         [Display(Name = "Contraseña")]
         public byte[] Contrasenia { get; set; }
 
-
+        public String Role { get; set; }
         [Display(AutoGenerateField = false)]
+        public List<CursoUsuario> CursoUsuarios { get; set; }
         public DateTime? FechaUltimoAcceso { get; set; }
+
+        
     }
+
 }

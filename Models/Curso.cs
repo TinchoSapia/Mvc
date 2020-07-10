@@ -35,7 +35,7 @@ namespace TpMVC.Models
         [Display(Name = "Programador")]
         public int ProgramadorId { get; set; }
         public Programador Programador { get; set; }
-        public ICollection<CursoProgramador> Cursos{ get; set; }
+        public List<CursoUsuario> CursoUsuarios { get; set; }
 
         public string ObtenerUrlCompleto()
         {
