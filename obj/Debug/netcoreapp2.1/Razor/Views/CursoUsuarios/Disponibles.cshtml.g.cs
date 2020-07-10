@@ -199,7 +199,7 @@ WriteAttributeValue("", 969, item.Nivel.ClaseCss, 969, 20, false);
             WriteLiteral("                <td>\r\n                    ");
             EndContext();
             BeginContext(1504, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "456a6cba40a24dedb00851d21351a0b6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "078bd0a9cf9e4ff2bcbc8452f6df6e4f", async() => {
                 BeginContext(1582, 12, true);
                 WriteLiteral(" - Agregar -");
                 EndContext();

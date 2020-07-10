@@ -47,11 +47,12 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a asp-area="" asp-controller="CursoUsuarios" asp-action="Disponibles" class="navbar-brand">Cursos Disponibles</a>
             </div>
             <div class="navbar-collapse collapse">
                 @if (User.IsInRole("administrador"))
                 {
+
+                    <a asp-area="" asp-controller="CursoUsuarios" asp-action="Disponibles" class="navbar-brand">Cursos Disponibles</a>
                     <ul class="nav navbar-nav mr-auto">
                         <li><a asp-controller="Lenguajes" asp-action="Index">Lenguaje</a></li>
                         <li><a asp-controller="Profesores" asp-action="Index">Profesor</a></li>
@@ -73,7 +74,7 @@
                             <ul class="dropdown-menu">
                                 <li><a asp-controller="Usuarios" asp-action="Edit">Editar</a></li>
                                 <li>
-                                    
+
                                     <a href="#" onclick="document.getElementById('logoutForm').submit();">Logout</a>
                                     <form id="logoutForm" method="post" asp-controller="Usuarios" asp-action="Logout"></form>
                                 </li>
@@ -98,9 +99,6 @@
 
     </div>
     <footer class="post-footer">
-
-
-        <p>    2020 - Sapia Martin Alejandro y Timothy Wider</p>
 
     </footer>
 
