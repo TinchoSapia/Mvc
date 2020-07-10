@@ -7,8 +7,10 @@
 
 <h2>Mis Cursos</h2>
 
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por lenguaje..">
+<hr />
 
-<table class="table">
+<table id="myTable" class="table">
     <thead>
         <tr>
             <th>
@@ -30,28 +32,52 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Curso.Titulo)
+        @foreach (var item in Model)
+        {
+            <tr style="background:@item.Curso.Nivel.ClaseCss">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso.Titulo)
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Curso.Lenguaje.Nombre)
-            </td>
-            <td>
-              @Html.DisplayFor(modelItem => item.Curso.Nivel.Nombre)
-            </td>
-            <td>
-                <a href=@item.Curso.ObtenerUrlCompleto() title=@item.Curso.ObtenerUrlCompleto() target="_blank"> Link</a>
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso.Lenguaje.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso.Nivel.Nombre)
+                </td>
+                <td>
+                    <a href=@item.Curso.ObtenerUrlCompleto() title=@item.Curso.ObtenerUrlCompleto() target="_blank"> Link</a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
-</table>
+</table id="myTable">
+
+<script>
+    function myFunction() {
+
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

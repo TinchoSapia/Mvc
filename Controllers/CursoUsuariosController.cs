@@ -28,6 +28,7 @@ namespace TpMVC.Models
                 .Where(x => x.UsuarioId == usuario.Id)
                 .Include(c => c.Curso)
                 .Include(c => c.Usuario)
+                .Include(c => c.Curso.Nivel)
                 .Include(c=>c.Curso.Lenguaje)
                 .Include(c=> c.Curso.Video);
             return View(await misCursos.ToListAsync());
@@ -40,7 +41,7 @@ namespace TpMVC.Models
                 .Include(c => c.Lenguaje)
                 .Include(c => c.Nivel)
                 .Include(c => c.Video)
-                .Include(c => c.Programador);
+                .Include(c => c.Profesor);
 
             ViewData["UsuarioId"] = usuario.Id;
 
@@ -63,7 +64,7 @@ namespace TpMVC.Models
                 .Include(c => c.Curso.Lenguaje)
                 .Include(c => c.Curso.Nivel)
                 .Include(c => c.Curso.Video)
-                .Include(c => c.Curso.Programador)
+                .Include(c => c.Curso.Profesor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (cursoUsuario == null)
             {

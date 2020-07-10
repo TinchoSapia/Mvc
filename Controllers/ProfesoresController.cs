@@ -12,22 +12,22 @@ using TpMVC.Models;
 namespace TpMVC.Controllers
 {
     [Authorize]
-    public class ProgramadoresController : Controller
+    public class ProfesoresController : Controller
     {
         private readonly ELearningDbContext _context;
 
-        public ProgramadoresController(ELearningDbContext context)
+        public ProfesoresController(ELearningDbContext context)
         {
             _context = context;
         }
 
-        // GET: Programadores
+        // GET: Profesores
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Programadores.ToListAsync());
+            return View(await _context.Profesores.ToListAsync());
         }
 
-        // GET: Programadores/Details/5
+        // GET: Profesores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,7 +35,7 @@ namespace TpMVC.Controllers
                 return NotFound();
             }
 
-            var programador = await _context.Programadores
+            var programador = await _context.Profesores
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (programador == null)
             {
@@ -45,18 +45,18 @@ namespace TpMVC.Controllers
             return View(programador);
         }
 
-        // GET: Programadores/Create
+        // GET: Profesores/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Programadores/Create
+        // POST: Profesores/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido")] Programador programador)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido")] Profesor programador)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace TpMVC.Controllers
             return View(programador);
         }
 
-        // GET: Programadores/Edit/5
+        // GET: Profesores/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,7 +75,7 @@ namespace TpMVC.Controllers
                 return NotFound();
             }
 
-            var programador = await _context.Programadores.FindAsync(id);
+            var programador = await _context.Profesores.FindAsync(id);
             if (programador == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace TpMVC.Controllers
             return View(programador);
         }
 
-        // POST: Programadores/Edit/5
+        // POST: Profesores/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido")] Programador programador)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido")] Profesor programador)
         {
             if (id != programador.Id)
             {
@@ -118,7 +118,7 @@ namespace TpMVC.Controllers
             return View(programador);
         }
 
-        // GET: Programadores/Delete/5
+        // GET: Profesores/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,7 +126,7 @@ namespace TpMVC.Controllers
                 return NotFound();
             }
 
-            var programador = await _context.Programadores
+            var programador = await _context.Profesores
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (programador == null)
             {
@@ -136,20 +136,20 @@ namespace TpMVC.Controllers
             return View(programador);
         }
 
-        // POST: Programadores/Delete/5
+        // POST: Profesores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var programador = await _context.Programadores.FindAsync(id);
-            _context.Programadores.Remove(programador);
+            var programador = await _context.Profesores.FindAsync(id);
+            _context.Profesores.Remove(programador);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProgramadorExists(int id)
         {
-            return _context.Programadores.Any(e => e.Id == id);
+            return _context.Profesores.Any(e => e.Id == id);
         }
     }
 }

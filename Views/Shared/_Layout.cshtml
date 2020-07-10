@@ -19,13 +19,16 @@
         h1, h2, h3, h4, h5, label, dl {
             color: #DADADA;
         }
-       a{
-           color:coral;
-       }
+
+        a {
+            color: coral;
+        }
+
         th {
             background: #393939;
             color: #DADADA;
         }
+
         tr {
             background: var(--my-var, #DADADA);
             color: #393939;
@@ -36,22 +39,22 @@
     <nav class="navbar navbar-inverse navbar-fixed-top bg-primary">
         <div class="container">
             <div class="navbar-header">
-               
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                
-                    <a asp-area="" asp-controller="CursoUsuarios" asp-action="Disponibles" class="navbar-brand">Cursos Disponibles</a>
-                </div>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a asp-area="" asp-controller="CursoUsuarios" asp-action="Disponibles" class="navbar-brand">Cursos Disponibles</a>
+            </div>
             <div class="navbar-collapse collapse">
                 @if (User.IsInRole("administrador"))
                 {
                     <ul class="nav navbar-nav mr-auto">
                         <li><a asp-controller="Lenguajes" asp-action="Index">Lenguaje</a></li>
-                        <li><a asp-controller="Programadores" asp-action="Index">Programador</a></li>
+                        <li><a asp-controller="Profesores" asp-action="Index">Profesor</a></li>
                         <li><a asp-controller="Videos" asp-action="Index">Servidor Streaming</a></li>
                         <li><a asp-controller="Cursos" asp-action="Index">Cursos</a></li>
                     </ul>
@@ -70,7 +73,7 @@
                             <ul class="dropdown-menu">
                                 <li><a asp-controller="Usuarios" asp-action="Edit">Editar</a></li>
                                 <li>
-                                    <!-- Acá utilizamos un a fuera del formulario para hacer submit del mismo. -->
+                                    
                                     <a href="#" onclick="document.getElementById('logoutForm').submit();">Logout</a>
                                     <form id="logoutForm" method="post" asp-controller="Usuarios" asp-action="Logout"></form>
                                 </li>
@@ -92,12 +95,14 @@
     <div class="container body-content">
         @RenderBody()
 
-        <footer class="post-footer">
-            <hr />
-            <p> 2020 - Sapia Martin Alejandro y Timothy Wider</p>
 
-        </footer>
     </div>
+    <footer class="post-footer">
+
+
+        <p>    2020 - Sapia Martin Alejandro y Timothy Wider</p>
+
+    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -122,4 +127,5 @@
 
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>

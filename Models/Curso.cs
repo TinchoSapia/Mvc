@@ -32,9 +32,9 @@ namespace TpMVC.Models
         public int VideoId { get; set; }
         public Video Video { get; set; }
 
-        [Display(Name = "Programador")]
-        public int ProgramadorId { get; set; }
-        public Programador Programador { get; set; }
+        [Display(Name = "Profesor")]
+        public int ProfesorId { get; set; }
+        public Profesor Profesor { get; set; }
         public List<CursoUsuario> CursoUsuarios { get; set; }
 
         public string ObtenerUrlCompleto()

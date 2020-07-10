@@ -7,6 +7,7 @@ using System.Threading.Tasks.Dataflow;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -27,9 +28,13 @@ namespace TpMVC.Controllers
             _context = context;
         }
 
-
+        
         public IActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Disponibles", "CursoUsuarios");
+            }
             TempData["returnUrl"] = returnUrl;
             return View();
         }
@@ -37,6 +42,10 @@ namespace TpMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([Bind("email", "password")] string email, string password)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Disponibles", "CursoUsuarios");
+            }
             string returnUrl = TempData["returnUrl"] as string;
             Usuario usuario = await _context.Usuarios.FirstOrDefaultAsync(usr => usr.Email == email.ToLower());
 

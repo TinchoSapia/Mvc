@@ -52,17 +52,29 @@ body {
     box-sizing: border-box;
     background: rgba(0,0,0,0.5)
 }
-footer {
+/*footer {
     bottom: 0;
     width: 100%;
     height: 0px;
     color: rgb(0, 0, 0);
     background:unset;
-}
-.post-footer {
+}*/
+.footer {
+    bottom: auto;
     width: 475px;
     margin: 0 auto;
     position: absolute;
+}
+.post-footer {
+    position: sticky;
+    width: 100%;
+    height: 2.5rem;
+    bottom: 0;
+    border-top: 0;
+    background-size: auto;
+    color: #CCCAC7;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 h2css {
     font-family: sans-serif;

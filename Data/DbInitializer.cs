@@ -66,19 +66,19 @@ namespace TpMVC.Data
             };
             context.Niveles.Add(Avanzado);
 
-            var Programador1 = new Programador()
+            var Profesor1 = new Profesor()
             {
                 Nombre = "Martin",
                 Apellido = "Perez"
             };
-            context.Programadores.Add(Programador1);
+            context.Profesores.Add(Profesor1);
 
-            var Programador2 = new Programador()
+            var Profesor2 = new Profesor()
             {
                 Nombre = "Alejandro",
                 Apellido = "Sanchez"
             };
-            context.Programadores.Add(Programador2);
+            context.Profesores.Add(Profesor2);
 
             var Video = new Video() 
             {
@@ -118,7 +118,7 @@ namespace TpMVC.Data
                 Titulo = "Variables en Java",
                 Lenguaje = Lenguaje1,
                 Nivel = Basico,
-                Programador = Programador1,
+                Profesor = Profesor1,
                 AnioPublicado = 2018,
                 Video = Video2,
                 Ruta = " "
@@ -130,7 +130,7 @@ namespace TpMVC.Data
                 Titulo = "Variables en JavaScript",
                 Lenguaje = Lenguaje2,
                 Nivel = Intermedio,
-                Programador = Programador2,
+                Profesor = Profesor2,
                 AnioPublicado = 2020,
                 Video = Video,
                 Ruta = " "
@@ -141,7 +141,7 @@ namespace TpMVC.Data
                 Titulo = "Variables en C#",
                 Lenguaje = Lenguaje3,
                 Nivel = Avanzado,
-                Programador = Programador1,
+                Profesor = Profesor1,
                 AnioPublicado = 2020,
                 Video = Video,
                 Ruta = "/1 "

@@ -31,7 +31,7 @@ namespace TpMVC.Controllers
                 .Include(c => c.Lenguaje)
                 .Include(c => c.Nivel)
                 .Include(c => c.Video)
-                .Include(c => c.Programador);
+                .Include(c => c.Profesor);
             return View(await eLearningDbContext.ToListAsync());
         }
         [Authorize(Roles = "cliente")]
@@ -56,7 +56,7 @@ namespace TpMVC.Controllers
                 .Include(c => c.Lenguaje)
                 .Include(c => c.Nivel)
                 .Include(c => c.Video)
-                .Include(c => c.Programador)
+                .Include(c => c.Profesor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (curso == null)
             {
@@ -71,6 +71,7 @@ namespace TpMVC.Controllers
         {
             ViewData["LenguajeId"] = new SelectList(_context.Lenguajes, "Id", "Nombre");
             ViewData["NivelId"] = new SelectList(_context.Niveles, "Id", "Nombre");
+            ViewData["ProfesorId"] = new SelectList(_context.Profesores, "Id", "NombreApellido");
             ViewData["VideoId"] = new SelectList(_context.Videos, "Id", "ServidorStreaming");
             return View(); 
         }
@@ -78,7 +79,7 @@ namespace TpMVC.Controllers
         // POST: Cursos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,AnioPublicado,LenguajeId,NivelId,VideoId,Ruta")] Curso curso)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,ProfesorId,AnioPublicado,LenguajeId,NivelId,VideoId,Ruta")] Curso curso)
         {
             if (ModelState.IsValid)
             {
@@ -88,6 +89,7 @@ namespace TpMVC.Controllers
             }
             ViewData["LenguajeId"] = new SelectList(_context.Lenguajes, "Id", "Nombre", curso.LenguajeId);
             ViewData["NivelId"] = new SelectList(_context.Niveles, "Id", "Nombre", curso.NivelId);
+            ViewData["ProfesorId"] = new SelectList(_context.Profesores, "Id", "NombreApellido", curso.ProfesorId);
             ViewData["VideoId"] = new SelectList(_context.Videos, "Id", "ServidorStreaming", curso.VideoId);
             return View(curso);
         }
@@ -108,14 +110,14 @@ namespace TpMVC.Controllers
             ViewData["LenguajeId"] = new SelectList(_context.Lenguajes, "Id", "Nombre", curso.LenguajeId);
             ViewData["NivelId"] = new SelectList(_context.Niveles, "Id", "Nombre", curso.NivelId);
             ViewData["VideoId"] = new SelectList(_context.Videos, "Id", "ServidorStreaming", curso.VideoId);
-            ViewData["ProgramadorId"] = new SelectList(_context.Programadores, "Id", "NombreApellido", curso.ProgramadorId);
+            ViewData["ProfesorId"] = new SelectList(_context.Profesores, "Id", "NombreApellido", curso.ProfesorId);
             return View(curso);
         }
 
         // POST: Cursos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,ProgramadorId,AnioPublicado,LenguajeId,NivelId,VideoId,Ruta")] Curso curso)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,ProfesorId,AnioPublicado,LenguajeId,NivelId,VideoId,Ruta")] Curso curso)
         {
             if (id != curso.Id)
             {
@@ -160,7 +162,7 @@ namespace TpMVC.Controllers
                 .Include(c => c.Lenguaje)
                 .Include(c => c.Nivel)
                 .Include(c => c.Video)
-                .Include(c => c.Programador)
+                .Include(c => c.Profesor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (curso == null)
             {

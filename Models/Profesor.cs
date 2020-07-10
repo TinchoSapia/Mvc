@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TpMVC.Models
 {
-    public class Programador
+    public class Profesor
     {
         public int Id { get; set; }
 
