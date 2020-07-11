@@ -12651,11 +12651,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC\\TpMVC.csproj",
+      "projectUniqueName": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\TpMVC.csproj",
       "projectName": "TpMVC",
-      "projectPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC\\TpMVC.csproj",
+      "projectPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\TpMVC.csproj",
       "packagesPath": "C:\\Users\\Compumar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC\\obj\\",
+      "outputPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Compumar\\AppData\\Roaming\\NuGet\\NuGet.Config",

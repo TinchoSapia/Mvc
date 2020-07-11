@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TpMVC.Data;
 using TpMVC.Models;
 
-namespace TpMVC.Controllers
+namespace TpMVC
 {
-    [Authorize]
     public class ProfesoresController : Controller
     {
         private readonly ELearningDbContext _context;
@@ -35,14 +33,14 @@ namespace TpMVC.Controllers
                 return NotFound();
             }
 
-            var programador = await _context.Profesores
+            var profesor = await _context.Profesores
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (programador == null)
+            if (profesor == null)
             {
                 return NotFound();
             }
 
-            return View(programador);
+            return View(profesor);
         }
 
         // GET: Profesores/Create
@@ -56,15 +54,15 @@ namespace TpMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido")] Profesor programador)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido")] Profesor profesor)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(programador);
+                _context.Add(profesor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(programador);
+            return View(profesor);
         }
 
         // GET: Profesores/Edit/5
@@ -75,12 +73,12 @@ namespace TpMVC.Controllers
                 return NotFound();
             }
 
-            var programador = await _context.Profesores.FindAsync(id);
-            if (programador == null)
+            var profesor = await _context.Profesores.FindAsync(id);
+            if (profesor == null)
             {
                 return NotFound();
             }
-            return View(programador);
+            return View(profesor);
         }
 
         // POST: Profesores/Edit/5
@@ -88,9 +86,9 @@ namespace TpMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido")] Profesor programador)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido")] Profesor profesor)
         {
-            if (id != programador.Id)
+            if (id != profesor.Id)
             {
                 return NotFound();
             }
@@ -99,12 +97,12 @@ namespace TpMVC.Controllers
             {
                 try
                 {
-                    _context.Update(programador);
+                    _context.Update(profesor);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProgramadorExists(programador.Id))
+                    if (!ProfesorExists(profesor.Id))
                     {
                         return NotFound();
                     }
@@ -115,7 +113,7 @@ namespace TpMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(programador);
+            return View(profesor);
         }
 
         // GET: Profesores/Delete/5
@@ -126,14 +124,14 @@ namespace TpMVC.Controllers
                 return NotFound();
             }
 
-            var programador = await _context.Profesores
+            var profesor = await _context.Profesores
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (programador == null)
+            if (profesor == null)
             {
                 return NotFound();
             }
 
-            return View(programador);
+            return View(profesor);
         }
 
         // POST: Profesores/Delete/5
@@ -141,13 +139,13 @@ namespace TpMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var programador = await _context.Profesores.FindAsync(id);
-            _context.Profesores.Remove(programador);
+            var profesor = await _context.Profesores.FindAsync(id);
+            _context.Profesores.Remove(profesor);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProgramadorExists(int id)
+        private bool ProfesorExists(int id)
         {
             return _context.Profesores.Any(e => e.Id == id);
         }

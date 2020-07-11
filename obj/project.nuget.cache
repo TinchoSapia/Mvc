@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6ade2S5xsKG6KTUGLzB3ckaOzYS+ZQB78mmkw8oPXzJw2OsHVf9VwDiLzEzpWKkVKFuDbi+xPy8aJcDgkd5KNQ==",
+  "dgSpecHash": "NDJMY5uk1u/kS8rCQRCN2fMsV4TFwfItFMcfRbv72qpkpJO5OtCh0ey0l7nMymOt8Be+V8ZbIea3cyTRDZFq4A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC\\TpMVC.csproj",
+  "projectFilePath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\TpMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Compumar\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.1.0\\microsoft.aspnet.identity.core.2.1.0.nupkg.sha512",
     "C:\\Users\\Compumar\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
