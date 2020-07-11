@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TpMVC.Models.CursoUsuario>
+
+@{
+    ViewData["Title"] = "Mis Cursos";
+
+}
+
+<h2>@ViewBag.NombreCurso</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por Email..">
+<hr />
+
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.FechaUltimoAcceso)
+            </th>
+>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr >
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Apellido)
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.FechaUltimoAcceso)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function myFunction() {
+
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

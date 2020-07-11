@@ -121,7 +121,9 @@ namespace TpMVC.Data
                 Profesor = Profesor1,
                 AnioPublicado = 2018,
                 Video = Video2,
-                Ruta = " "
+                Ruta = " ",
+                CantSubscriptos = 1
+                
             };
             context.Cursos.Add(Curso1);
 
@@ -133,7 +135,8 @@ namespace TpMVC.Data
                 Profesor = Profesor2,
                 AnioPublicado = 2020,
                 Video = Video,
-                Ruta = " "
+                Ruta = " ",
+                CantSubscriptos = 1
             };
             context.Cursos.Add(Curso2);
             var Curso3 = new Curso()
@@ -144,12 +147,13 @@ namespace TpMVC.Data
                 Profesor = Profesor1,
                 AnioPublicado = 2020,
                 Video = Video,
-                Ruta = "/1 "
+                Ruta = "/1 ",
+                CantSubscriptos = 1
             };
             context.Cursos.Add(Curso3);
 
 
-            context.CursoUsuarios.Add(new CursoUsuario() { Usuario = usuario1, Curso = Curso1 });
+            context.CursoUsuarios.Add(new CursoUsuario() { Usuario = usuario2, Curso = Curso1, });
             context.CursoUsuarios.Add(new CursoUsuario() { Usuario = usuario2, Curso = Curso2 });
             context.CursoUsuarios.Add(new CursoUsuario() { Usuario = usuario2, Curso = Curso3 });
 

@@ -131,7 +131,7 @@ namespace TpMVC.Controllers
                     {
                         _context.Add(usuario);
                         await _context.SaveChangesAsync();
-                        return RedirectToAction("Index", "Cursos");
+                        return RedirectToAction("Disponibles", "CursoUsuarios");
                     }
                 }
                 else

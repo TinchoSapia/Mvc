@@ -62,6 +62,7 @@
                 }
                 @if (User.IsInRole("cliente"))
                 {
+                    <a asp-area="" asp-controller="CursoUsuarios" asp-action="Disponibles" class="navbar-brand">Cursos Disponibles</a>
                     <ul class="nav navbar-nav mr-auto">
                         <li><a asp-controller="CursoUsuarios" asp-action="MisCursos">Mis Cursos</a></li>
                     </ul>

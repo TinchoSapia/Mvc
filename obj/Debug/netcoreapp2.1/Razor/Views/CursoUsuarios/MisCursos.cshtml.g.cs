@@ -192,7 +192,7 @@ WriteAttributeValue("", 1655, item.Curso.ObtenerUrlCompleto(), 1655, 32, false);
             WriteLiteral(" target=\"_blank\"> Link</a>\r\n                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1780, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69c3a1f562764a58a55ae95eff6b6c43", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69091e513dff47598ff2e1ab57c69889", async() => {
                 BeginContext(1828, 7, true);
                 WriteLiteral("Detalle");
                 EndContext();
@@ -227,7 +227,7 @@ WriteAttributeValue("", 1655, item.Curso.ObtenerUrlCompleto(), 1655, 32, false);
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(1863, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "171194164ed34c19a9741a70c071d315", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "baf05412e76a430d816945df43b752a0", async() => {
                 BeginContext(1910, 8, true);
                 WriteLiteral("Eliminar");
                 EndContext();

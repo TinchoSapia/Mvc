@@ -24,11 +24,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.Nivel)
             </th>
-            @if (User.IsInRole("cliente")) {
-            <th>
-                Agrgar a Mis Cursos
-            </th>
+            @if (User.IsInRole("cliente"))
+            {
+                <th>
+                    Agrgar a Mis Cursos
+                </th>
             }
+            @if (User.IsInRole("administrador"))
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.CantSubscriptos)
+                    </th>
+                }
+            
         </tr>
     </thead>
     <tbody>
@@ -53,10 +61,27 @@
                     <a asp-controller="CursoUsuarios" asp-action="Create" asp-route-id="@item.Id"> - Agregar -</a>
                 </td>
             }
-            </tr>
+
+            @if (User.IsInRole("administrador"))
+            {
+                if (item.CantSubscriptos != 0)
+                {
+                    <td>
+                        <a asp-action="UsuariosInscriptos" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.CantSubscriptos)</a>
+
+                    </td>
+                }
+                else { 
+            <td>
+            @Html.DisplayFor(modelItem => item.CantSubscriptos)
+
+            </td>
+                }
+            }
+        </tr>
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
 <script>
 function myFunction() {

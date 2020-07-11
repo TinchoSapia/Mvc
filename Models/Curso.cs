@@ -20,9 +20,11 @@ namespace TpMVC.Models
         [Required(ErrorMessage = "Campo requerido")]
         [Display(Name = "Ruta del video")]
         public string Ruta { get; set; }
+        [Display(Name = "Cantidad de subscriptores")]
+        public int CantSubscriptos { get; set; }
 
         [Display(Name = "Lenguaje")]
-        public int LenguajeId { get; set; }
+        public int LenguajeId { get; set ; }
         public Lenguaje Lenguaje { get; set; }
 
         [Display(Name = "Nivel")]

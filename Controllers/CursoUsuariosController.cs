@@ -49,7 +49,18 @@ namespace TpMVC.Models
 
 
         }
+        public async Task<IActionResult> UsuariosInscriptos(int? id)
+        {
+            Curso curso = await _context.Cursos.FindAsync(id);
+            var usuarios = _context.CursoUsuarios
+                .Where(x => x.CursoId == id)
+                .Include(c => c.Curso)
+                .Include(c => c.Usuario);
 
+            ViewData["NombreCurso"] = curso.Titulo;
+            return View(await usuarios.ToListAsync());
+
+        }
         // GET: CursoUsuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -85,6 +96,7 @@ namespace TpMVC.Models
                 CursoUsuario cursoUsuario = new CursoUsuario();
                 cursoUsuario.UsuarioId = usuario.Id;
                 cursoUsuario.Usuario = usuario;
+                curso.CantSubscriptos = curso.CantSubscriptos + 1;
                 cursoUsuario.CursoId = curso.Id;
                 cursoUsuario.Curso = curso;
                 _context.Add(cursoUsuario);
@@ -159,6 +171,8 @@ namespace TpMVC.Models
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cursoUsuario = await _context.CursoUsuarios.FindAsync(id);
+            Curso curso = await _context.Cursos.FindAsync(cursoUsuario.CursoId);
+            curso.CantSubscriptos = curso.CantSubscriptos- 1;
             _context.CursoUsuarios.Remove(cursoUsuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(MisCursos));
