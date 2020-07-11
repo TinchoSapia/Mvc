@@ -11,7 +11,7 @@ using TpMVC.Models;
 
 namespace TpMVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="administrador")]
     public class LenguajesController : Controller
     {
         private readonly ELearningDbContext _context;

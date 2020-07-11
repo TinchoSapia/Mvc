@@ -11,7 +11,7 @@ using TpMVC.Models;
 
 namespace TpMVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "administrador")]
     public class VideosController : Controller
     {
         private readonly ELearningDbContext _context;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\TpMVC.csproj": {}
+    "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC4\\TpMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\TpMVC.csproj": {
+    "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC4\\TpMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\TpMVC.csproj",
+        "projectUniqueName": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC4\\TpMVC.csproj",
         "projectName": "TpMVC",
-        "projectPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\TpMVC.csproj",
+        "projectPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC4\\TpMVC.csproj",
         "packagesPath": "C:\\Users\\Compumar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC2\\obj\\",
+        "outputPath": "C:\\Users\\Compumar\\Desktop\\ORT\\Proyects\\TpMVC4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Compumar\\AppData\\Roaming\\NuGet\\NuGet.Config",

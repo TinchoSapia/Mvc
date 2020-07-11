@@ -49,6 +49,7 @@ namespace TpMVC.Models
 
 
         }
+        [Authorize(Roles = "administrador")]
         public async Task<IActionResult> UsuariosInscriptos(int? id)
         {
             Curso curso = await _context.Cursos.FindAsync(id);
@@ -110,6 +111,7 @@ namespace TpMVC.Models
         // POST: CursoUsuarios/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "cliente")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,UsuarioId,CursoId")] CursoUsuario cursoUsuario)
@@ -127,6 +129,7 @@ namespace TpMVC.Models
         }
 
         // GET: CursoUsuarios/Edit/5
+        [Authorize(Roles = "cliente")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -144,8 +147,9 @@ namespace TpMVC.Models
             return View(cursoUsuario);
         }
 
-       
+
         // GET: CursoUsuarios/Delete/5
+        [Authorize(Roles = "cliente")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -166,6 +170,7 @@ namespace TpMVC.Models
         }
 
         // POST: CursoUsuarios/Delete/5
+        [Authorize(Roles = "cliente")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
