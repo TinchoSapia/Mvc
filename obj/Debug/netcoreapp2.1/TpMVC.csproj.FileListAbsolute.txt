@@ -355,3 +355,4 @@ C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.dll
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.pdb
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.genruntimeconfig.cache
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.csproj.CopyComplete
+C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\Razor\Views\CursoUsuarios\EliminarUsuarioCurso.cshtml.g.cs

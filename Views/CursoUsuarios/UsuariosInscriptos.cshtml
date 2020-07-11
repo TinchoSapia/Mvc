@@ -25,27 +25,31 @@
             <th>
                 @Html.DisplayNameFor(model => model.Usuario.FechaUltimoAcceso)
             </th>
->
+            <th>
+            Remover usuario del curso
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr >
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usuario.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usuario.Apellido)
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Apellido)
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usuario.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usuario.FechaUltimoAcceso)
-                </td>
-
-            </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.FechaUltimoAcceso)
+            </td>
+            <td>
+                <a asp-action="EliminarUsuarioCurso" asp-route-id="@item.Id" >Eliminar</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

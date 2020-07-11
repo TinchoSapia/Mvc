@@ -62,6 +62,33 @@ namespace TpMVC.Models
             return View(await usuarios.ToListAsync());
 
         }
+        [Authorize(Roles = "administrador")]
+        public async Task<IActionResult> EliminarUsuarioCurso(int? id)
+        {
+            var cursoUsuario = await _context.CursoUsuarios
+                .Include(c => c.Curso)
+                .Include(c => c.Usuario)
+                .Include(c => c.Curso.Lenguaje)
+                .Include(c => c.Curso.Nivel)
+                .Include(c => c.Curso.Video)
+                .Include(c => c.Curso.Profesor)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            return View(cursoUsuario);
+
+        }
+        // POST: CursoUsuarios/Delete/5
+        [Authorize(Roles = "administrador")]
+        [HttpPost, ActionName("EliminarUsuarioCurso")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ConfirmarEliminarUsuarioCurso(int id)
+        {
+            var cursoUsuario = await _context.CursoUsuarios.FindAsync(id);
+            Curso curso = await _context.Cursos.FindAsync(cursoUsuario.CursoId);
+            curso.CantSubscriptos = curso.CantSubscriptos - 1;
+            _context.CursoUsuarios.Remove(cursoUsuario);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Disponibles));
+        }
         // GET: CursoUsuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {

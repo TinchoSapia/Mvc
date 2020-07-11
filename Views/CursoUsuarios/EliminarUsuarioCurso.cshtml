@@ -1,0 +1,45 @@
+﻿@model TpMVC.Models.CursoUsuario
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h2>Eliminar: @Model.Usuario.Nombre   @Model.Usuario.Apellido del curso</h2>
+
+<h3>¿Estas seguro que quieres eliminarlo?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Titulo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Titulo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Profesor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Profesor.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Lenguaje)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Lenguaje.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.CantSubscriptos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso.CantSubscriptos)
+        </dd>
+        
+    </dl>
+
+    <form asp-action="EliminarUsuarioCurso">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Aceptar" class="btn btn-default" /> |
+        <a asp-action="UsuariosInscriptos">Volver a la lista</a>
+    </form>
+</div>

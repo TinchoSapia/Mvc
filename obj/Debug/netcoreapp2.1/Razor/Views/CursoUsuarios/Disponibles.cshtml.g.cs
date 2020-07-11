@@ -228,7 +228,7 @@ WriteAttributeValue("", 1227, item.Nivel.ClaseCss, 1227, 20, false);
             WriteLiteral("                <td>\r\n                    ");
             EndContext();
             BeginContext(1762, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "839112f08c19460790ced14b2c1711ca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "709bfcc4525a4c3191f4742d9c7eb535", async() => {
                 BeginContext(1840, 12, true);
                 WriteLiteral(" - Agregar -");
                 EndContext();
@@ -284,7 +284,7 @@ WriteAttributeValue("", 1227, item.Nivel.ClaseCss, 1227, 20, false);
             WriteLiteral("                    <td>\r\n                        ");
             EndContext();
             BeginContext(2080, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c08706890318480696732805f065c48c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f857e16c437046f78e529857481c6143", async() => {
                 BeginContext(2140, 50, false);
 #line 70 "C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\Views\CursoUsuarios\Disponibles.cshtml"
                                                                               Write(Html.DisplayFor(modelItem => item.CantSubscriptos));
