@@ -57,7 +57,7 @@ using TpMVC.Models;
             WriteLiteral("<div class=\"text-center\">\r\n    <h1>Bienvenido a Sistema de Cursos de Programacion On Line</h1>\r\n</div>\r\n\r\n<hr />\r\n<hr />\r\n\r\n<div class=\"row\">\r\n\r\n        <div class=\"col-lg-offset-4 col-md-4\">\r\n            ");
             EndContext();
             BeginContext(205, 819, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50de44f4b84b4383b23aa2c478398136", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6784c51cdd224be0afbb697134c4dd67", async() => {
                 BeginContext(262, 65, true);
                 WriteLiteral("\r\n                <div class=\"text-danger\">\r\n                    ");
                 EndContext();

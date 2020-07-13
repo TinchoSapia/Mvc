@@ -307,7 +307,6 @@ C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\bin\Debug\netcoreapp2.1\TpMVC.View
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.csprojAssemblyReference.cache
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.AssemblyInfoInputs.cache
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.AssemblyInfo.cs
-C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.csproj.CoreCompileInputs.cache
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.RazorAssemblyInfo.cache
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.RazorAssemblyInfo.cs
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.TagHelpers.input.cache
@@ -356,3 +355,4 @@ C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.pdb
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.genruntimeconfig.cache
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.csproj.CopyComplete
 C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\Razor\Views\CursoUsuarios\EliminarUsuarioCurso.cshtml.g.cs
+C:\Users\Compumar\Desktop\ORT\Proyects\TpMVC4\obj\Debug\netcoreapp2.1\TpMVC.csproj.CoreCompileInputs.cache

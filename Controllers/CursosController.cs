@@ -111,13 +111,14 @@ namespace TpMVC.Controllers
             ViewData["NivelId"] = new SelectList(_context.Niveles, "Id", "Nombre", curso.NivelId);
             ViewData["VideoId"] = new SelectList(_context.Videos, "Id", "ServidorStreaming", curso.VideoId);
             ViewData["ProfesorId"] = new SelectList(_context.Profesores, "Id", "NombreApellido", curso.ProfesorId);
+            ViewData["CantSubscriptos"] = curso.CantSubscriptos;
             return View(curso);
         }
 
         // POST: Cursos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,ProfesorId,AnioPublicado,LenguajeId,NivelId,VideoId,Ruta")] Curso curso)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,ProfesorId,AnioPublicado,LenguajeId,NivelId,VideoId,Ruta,CantSubscriptos")] Curso curso)
         {
             if (id != curso.Id)
             {

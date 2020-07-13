@@ -66,7 +66,7 @@ using TpMVC.Models;
             WriteLiteral("\r\n<h2>Cursos disponibles</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(125, 45, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81a585eab2f84bfa8de31122515f09fc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fd190a7dc874fb686ad30352f985286", async() => {
                 BeginContext(148, 18, true);
                 WriteLiteral("Cargar nuevo curso");
                 EndContext();
@@ -207,7 +207,7 @@ WriteAttributeValue("", 852, item.Nivel.ClaseCss, 852, 20, false);
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1435, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "627c2f5e992f4511863a635f1be8991c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6b374c0cfa24e7983059d739c0dbf6b", async() => {
                 BeginContext(1480, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -242,7 +242,7 @@ WriteAttributeValue("", 852, item.Nivel.ClaseCss, 852, 20, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1510, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "833d7b6e2d704f21a382aade5f9caf70", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b06c634d8fdf4038b3fdc104df527211", async() => {
                 BeginContext(1558, 8, true);
                 WriteLiteral("Detalles");
                 EndContext();
@@ -277,7 +277,7 @@ WriteAttributeValue("", 852, item.Nivel.ClaseCss, 852, 20, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1590, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "041210270b3e42b99d2bc09e931d6037", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7be96ee2cdf743eabe6e6055b6b24e57", async() => {
                 BeginContext(1637, 8, true);
                 WriteLiteral("Eliminar");
                 EndContext();

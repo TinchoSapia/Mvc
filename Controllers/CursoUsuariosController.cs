@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using TpMVC.Data;
 
 namespace TpMVC.Models
@@ -43,9 +44,12 @@ namespace TpMVC.Models
                 .Include(c => c.Video)
                 .Include(c => c.Profesor);
 
+            var lista = await eLearningDbContext.ToListAsync();
+           
+
             ViewData["UsuarioId"] = usuario.Id;
 
-            return View(await eLearningDbContext.ToListAsync());
+            return View(lista);
 
 
         }

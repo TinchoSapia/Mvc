@@ -163,7 +163,7 @@ Write(ViewBag.NombreCurso);
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1361, 74, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb256b0f0f34bfc8a03ff69e9697bc9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f4396237cd504932b709b9263179e0fc", async() => {
                 BeginContext(1423, 8, true);
                 WriteLiteral("Eliminar");
                 EndContext();
